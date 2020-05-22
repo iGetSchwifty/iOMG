@@ -12,7 +12,7 @@ import Combine
 class PriceService {
     static func getPrice(provider: NetworkingProtocol) -> AnyPublisher<String?, Never> {
         return provider
-            .dataTaskPublisher(for: URLService.omgPrice)
+            .dataTaskPublisher(for: URLRequest(url: URLService.omgPrice))
             .map { response in
                 if let responseStr = String(data: response, encoding: .utf8),
                 let range = responseStr.range(of: "~OMG~USD~") {

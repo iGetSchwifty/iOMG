@@ -9,7 +9,7 @@ import Combine
 import Foundation
 
 class NetworkingPublisher: NetworkingProtocol {
-    func dataTaskPublisher(for request: URL) -> AnyPublisher<Data, URLSession.DataTaskPublisher.Failure> {
+    func dataTaskPublisher(for request: URLRequest) -> AnyPublisher<Data, URLSession.DataTaskPublisher.Failure> {
         return session.dataTaskPublisher(for: request)
             .map { $0.data }
             .eraseToAnyPublisher()

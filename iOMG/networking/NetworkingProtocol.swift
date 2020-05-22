@@ -9,5 +9,5 @@ import Combine
 import Foundation
 
 protocol NetworkingProtocol {
-    func dataTaskPublisher(for request: URL) -> AnyPublisher<Data, URLSession.DataTaskPublisher.Failure>
+    func dataTaskPublisher(for request: URLRequest) -> AnyPublisher<Data, URLSession.DataTaskPublisher.Failure>
 }

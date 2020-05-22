@@ -9,5 +9,8 @@
 import Foundation
 
 class URLService {
-    public static let omgPrice = URL(string: "https://www.cryptocompare.com/coins/omg/overview/USD")!
+    static let omgPrice = URL(string: "https://www.cryptocompare.com/coins/omg/overview/USD")!
+    
+    private static let baseURL = "https://watcher-info.ropsten.v1.omg.network"
+    static let networkStats = URL(string: "\(baseURL)/stats.get")!
 }

@@ -10,7 +10,15 @@ import SwiftUI
 
 struct AppView: View {
     var body: some View {
-        PriceView()
+        VStack {
+            PriceView()
+            
+            Spacer()
+            
+            StatsView()
+            
+            Spacer()
+        }
     }
 }
 

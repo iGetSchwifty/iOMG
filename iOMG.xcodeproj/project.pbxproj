@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF35633C247886E200289980 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF35633B247886E200289980 /* StatsView.swift */; };
+		CF35633E2478874200289980 /* StatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF35633D2478874200289980 /* StatsViewModel.swift */; };
+		CF3563402478875B00289980 /* StatsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF35633F2478875B00289980 /* StatsService.swift */; };
+		CF35634224788B4D00289980 /* OMGNetworkStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF35634124788B4D00289980 /* OMGNetworkStats.swift */; };
 		CF3A6DC924780A4A00DDEC0F /* PriceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3A6DC824780A4A00DDEC0F /* PriceService.swift */; };
 		CF3A6DCE24780C8600DDEC0F /* URLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3A6DCB24780C8600DDEC0F /* URLService.swift */; };
 		CF3A6DCF24780C8600DDEC0F /* NetworkingPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3A6DCC24780C8600DDEC0F /* NetworkingPublisher.swift */; };
@@ -42,6 +46,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CF35633B247886E200289980 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
+		CF35633D2478874200289980 /* StatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewModel.swift; sourceTree = "<group>"; };
+		CF35633F2478875B00289980 /* StatsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsService.swift; sourceTree = "<group>"; };
+		CF35634124788B4D00289980 /* OMGNetworkStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMGNetworkStats.swift; sourceTree = "<group>"; };
 		CF3A6DC824780A4A00DDEC0F /* PriceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceService.swift; sourceTree = "<group>"; };
 		CF3A6DCB24780C8600DDEC0F /* URLService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLService.swift; sourceTree = "<group>"; };
 		CF3A6DCC24780C8600DDEC0F /* NetworkingPublisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingPublisher.swift; sourceTree = "<group>"; };
@@ -90,6 +98,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF35633A247886BD00289980 /* stats */ = {
+			isa = PBXGroup;
+			children = (
+				CF35633B247886E200289980 /* StatsView.swift */,
+				CF35633D2478874200289980 /* StatsViewModel.swift */,
+				CF35633F2478875B00289980 /* StatsService.swift */,
+				CF35634124788B4D00289980 /* OMGNetworkStats.swift */,
+			);
+			path = stats;
+			sourceTree = "<group>";
+		};
 		CF3A6DC624780A0D00DDEC0F /* coredata */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,7 +120,8 @@
 		CF3A6DC724780A1A00DDEC0F /* views */ = {
 			isa = PBXGroup;
 			children = (
-				CF3A6DD12478130700DDEC0F /* Price */,
+				CF3A6DD12478130700DDEC0F /* price */,
+				CF35633A247886BD00289980 /* stats */,
 				CF6B87572475EE8300EF2EF7 /* AppView.swift */,
 			);
 			path = views;
@@ -117,14 +137,14 @@
 			path = networking;
 			sourceTree = "<group>";
 		};
-		CF3A6DD12478130700DDEC0F /* Price */ = {
+		CF3A6DD12478130700DDEC0F /* price */ = {
 			isa = PBXGroup;
 			children = (
 				CF3A6DD22478131600DDEC0F /* PriceView.swift */,
 				CF3A6DD42478132500DDEC0F /* PriceViewModel.swift */,
 				CF3A6DC824780A4A00DDEC0F /* PriceService.swift */,
 			);
-			path = Price;
+			path = price;
 			sourceTree = "<group>";
 		};
 		CF6B87442475EE8300EF2EF7 = {
@@ -320,15 +340,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF35634224788B4D00289980 /* OMGNetworkStats.swift in Sources */,
 				CF3A6DD52478132500DDEC0F /* PriceViewModel.swift in Sources */,
 				CF6B87512475EE8300EF2EF7 /* AppDelegate.swift in Sources */,
 				CF3A6DCE24780C8600DDEC0F /* URLService.swift in Sources */,
 				CF6B87532475EE8300EF2EF7 /* SceneDelegate.swift in Sources */,
 				CF6B87582475EE8300EF2EF7 /* AppView.swift in Sources */,
 				CF3A6DC924780A4A00DDEC0F /* PriceService.swift in Sources */,
+				CF3563402478875B00289980 /* StatsService.swift in Sources */,
 				CF3A6DD32478131600DDEC0F /* PriceView.swift in Sources */,
+				CF35633C247886E200289980 /* StatsView.swift in Sources */,
 				CF3A6DD024780C8600DDEC0F /* NetworkingProtocol.swift in Sources */,
 				CF6B87562475EE8300EF2EF7 /* iOMG.xcdatamodeld in Sources */,
+				CF35633E2478874200289980 /* StatsViewModel.swift in Sources */,
 				CF3A6DCF24780C8600DDEC0F /* NetworkingPublisher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
