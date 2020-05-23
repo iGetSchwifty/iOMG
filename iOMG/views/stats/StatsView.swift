@@ -80,9 +80,13 @@ struct StatsView: View {
                 
                 Spacer()
                 
-                Text("Version: \(viewModel.currentStats!.version)")
-                    .font(.footnote)
-                    .padding()
+                HStack(alignment: .center) {
+                    Text("Version: \(viewModel.currentStats!.version)")
+                        .font(.footnote)
+                        .padding()
+                    
+                    Image(systemName: "square.stack.3d.down.dottedline")
+                }
             }
         }.onAppear {
             self.viewModel.reload()
