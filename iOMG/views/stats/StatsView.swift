@@ -14,6 +14,7 @@ struct StatsView: View {
         VStack {
             if viewModel.currentStats == nil {
                 Text("Loading network stats...")
+                Spacer()
             } else {
                 Text("OMG Network Stats").font(.body).padding()
                 VStack {
@@ -73,8 +74,11 @@ struct StatsView: View {
                     }
                 }
                 
+                Spacer()
+                
                 Text("Version: \(viewModel.currentStats!.version)")
                     .font(.footnote)
+                    .padding()
             }
         }
     }

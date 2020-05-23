@@ -10,14 +10,29 @@ import SwiftUI
 
 struct AppView: View {
     var body: some View {
-        VStack {
-            PriceView()
+        TabView() {
+            VStack {
+                PriceView()
+                
+                Spacer()
+                
+                StatsView()
+            }.tabItem {
+                Image(systemName: "rhombus")
+                Text("Home")
+            }.tag(1)
             
-            Spacer()
+            AccountView()
+                .tabItem {
+                    Image(systemName: "person")
+                    Text("Account")
+                }.tag(2)
             
-            StatsView()
-            
-            Spacer()
+            ExplorerView()
+                .tabItem {
+                    Image(systemName: "rectangle.expand.vertical")
+                    Text("Explorer")
+                }.tag(3)
         }
     }
 }
