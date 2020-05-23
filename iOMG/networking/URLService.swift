@@ -13,4 +13,5 @@ class URLService {
     
     private static let baseURL = "https://watcher-info.ropsten.v1.omg.network"
     static let networkStats = URL(string: "\(baseURL)/stats.get")!
+    static let feeInfo = URL(string: "\(baseURL)/fees.all")!
 }

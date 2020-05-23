@@ -12,16 +12,18 @@ import Foundation
 
 class StatsViewModel: ObservableObject {
     @Published var currentStats: OMGNetworkStats? = nil
+    @Published var currentFeeInfo: FeeInfo? = nil
     private let provider: NetworkingProtocol
     private var disposeBag = Set<AnyCancellable>()
     private var isFetching = false
+    private var isFetchingFee = false
     
     init(provider: NetworkingProtocol = NetworkingPublisher()) {
         self.provider = provider
         fetch()
     }
     
-    func reloadPrice() {
+    func reload() {
         DispatchQueue.global(qos: .background).async { [weak self] in
             self?.fetch()
         }
@@ -41,6 +43,25 @@ class StatsViewModel: ObservableObject {
                     return
                 }
                 self.currentStats = stats
+            }.store(in: &disposeBag)
+        
+        fetchFeeInfo()
+    }
+    
+    private func fetchFeeInfo() {
+        guard isFetchingFee == false else { return }
+        isFetchingFee = true
+        StatsService.getEthFee(provider: provider)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] feeInfo in
+                guard let self = self else { return }
+                self.isFetchingFee = false
+                
+                guard let feeInfo = feeInfo else {
+                    //  TODO: Do something here...
+                    return
+                }
+                self.currentFeeInfo = feeInfo
             }.store(in: &disposeBag)
     }
 }

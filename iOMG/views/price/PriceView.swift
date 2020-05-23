@@ -14,7 +14,7 @@ struct PriceView: View {
     @State var isSpinning = false
     var body: some View {
         VStack {
-            
+            Text("OMG Network").font(.body).padding().foregroundColor(.blue)
             VStack {
                 Text("Tap to reload price").font(.system(size: 10))
                 

@@ -16,7 +16,11 @@ struct StatsView: View {
                 Text("Loading network stats...")
                 Spacer()
             } else {
-                Text("OMG Network Stats").font(.body).padding()
+                if viewModel.currentFeeInfo != nil {
+                    if viewModel.currentFeeInfo!.amount != nil && viewModel.currentFeeInfo!.subunitValue != nil {
+                        Text("Current ETH Fee: \(Double(viewModel.currentFeeInfo!.amount!) / Double(viewModel.currentFeeInfo!.subunitValue!))").font(.subheadline).padding()
+                    }
+                }
                 VStack {
                     Text("Average Block Interval").font(.title)
                     HStack {
@@ -80,6 +84,8 @@ struct StatsView: View {
                     .font(.footnote)
                     .padding()
             }
+        }.onAppear {
+            self.viewModel.reload()
         }
     }
 }

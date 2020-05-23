@@ -28,6 +28,7 @@
 		CF6B87602475EE8500EF2EF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF6B875E2475EE8500EF2EF7 /* LaunchScreen.storyboard */; };
 		CF6B876B2475EE8500EF2EF7 /* iOMGTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6B876A2475EE8500EF2EF7 /* iOMGTests.swift */; };
 		CF6B87762475EE8500EF2EF7 /* iOMGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6B87752475EE8500EF2EF7 /* iOMGUITests.swift */; };
+		CFECB6562479DA06003B1123 /* FeeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFECB6552479DA06003B1123 /* FeeInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		CF6B87712475EE8500EF2EF7 /* iOMGUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOMGUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF6B87752475EE8500EF2EF7 /* iOMGUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOMGUITests.swift; sourceTree = "<group>"; };
 		CF6B87772475EE8500EF2EF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFECB6552479DA06003B1123 /* FeeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeeInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +126,7 @@
 				CF35633B247886E200289980 /* StatsView.swift */,
 				CF35633D2478874200289980 /* StatsViewModel.swift */,
 				CF35633F2478875B00289980 /* StatsService.swift */,
-				CF35634124788B4D00289980 /* OMGNetworkStats.swift */,
+				CFECB6542479D9F3003B1123 /* models */,
 			);
 			path = stats;
 			sourceTree = "<group>";
@@ -229,6 +231,15 @@
 				CF6B87772475EE8500EF2EF7 /* Info.plist */,
 			);
 			path = iOMGUITests;
+			sourceTree = "<group>";
+		};
+		CFECB6542479D9F3003B1123 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				CF35634124788B4D00289980 /* OMGNetworkStats.swift */,
+				CFECB6552479DA06003B1123 /* FeeInfo.swift */,
+			);
+			path = models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,6 +378,7 @@
 				CF6B87512475EE8300EF2EF7 /* AppDelegate.swift in Sources */,
 				CF3A6DCE24780C8600DDEC0F /* URLService.swift in Sources */,
 				CF6B87532475EE8300EF2EF7 /* SceneDelegate.swift in Sources */,
+				CFECB6562479DA06003B1123 /* FeeInfo.swift in Sources */,
 				CF6B87582475EE8300EF2EF7 /* AppView.swift in Sources */,
 				CF3A6DC924780A4A00DDEC0F /* PriceService.swift in Sources */,
 				CF3563402478875B00289980 /* StatsService.swift in Sources */,

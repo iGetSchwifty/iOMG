@@ -22,17 +22,18 @@ struct AppView: View {
                 Text("Home")
             }.tag(1)
             
-            AccountView()
-                .tabItem {
-                    Image(systemName: "person")
-                    Text("Account")
-                }.tag(2)
-            
             ExplorerView()
                 .tabItem {
                     Image(systemName: "rectangle.expand.vertical")
                     Text("Explorer")
-                }.tag(3)
+                }.tag(2)
+            
+            //TODO:
+//            AccountView()
+//                .tabItem {
+//                    Image(systemName: "person")
+//                    Text("Account")
+//                }.tag(3)
         }
     }
 }
