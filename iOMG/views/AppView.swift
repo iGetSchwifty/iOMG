@@ -8,20 +8,34 @@
 
 import SwiftUI
 
+struct HomeView: View {
+    var body: some View {
+        ScrollView {
+            VStack {
+                PriceView()
+                        
+                Spacer()
+                        
+                StatsView()
+            }.frame(minWidth: 0, maxWidth: .infinity,
+                    minHeight: 0, maxHeight: .infinity,
+                    alignment: .center)
+        }
+        .navigationBarTitle("OMG Network", displayMode: .inline)
+        .navigationBarHidden(true)
+    }
+}
+
 struct AppView: View {
     var body: some View {
         TabView() {
-            VStack {
-                PriceView()
-                
-                Spacer()
-                
-                StatsView()
+            NavigationView {
+                HomeView()
             }.tabItem {
                 Image(systemName: "rhombus")
                 Text("Home")
             }.tag(1)
-            
+                
             ExplorerView()
                 .tabItem {
                     Image(systemName: "rectangle.expand.vertical")

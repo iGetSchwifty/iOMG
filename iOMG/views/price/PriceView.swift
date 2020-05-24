@@ -25,7 +25,6 @@ struct PriceView: View {
                     .rotationEffect(.degrees(rotation))
                     .animation(.easeInOut)
             }
-            .padding()
             .onTapGesture {
                 self.spinLogo()
             }

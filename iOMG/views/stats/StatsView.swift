@@ -80,13 +80,17 @@ struct StatsView: View {
                 
                 Spacer()
                 
-                HStack(alignment: .center) {
+                VStack(alignment: .center) {
                     Text("Version: \(viewModel.currentStats!.version)")
                         .font(.footnote)
-                        .padding()
                     
-                    Image(systemName: "square.stack.3d.down.dottedline")
-                }
+                    NavigationLink(destination: URLPickerView()) {
+                        HStack {
+                            Image(systemName: "square.stack.3d.down.dottedline")
+                            Text("Change")
+                        }
+                    }
+                }.padding()
             }
         }.onAppear {
             self.viewModel.reload()

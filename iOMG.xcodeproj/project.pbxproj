@@ -29,6 +29,8 @@
 		CF6B876B2475EE8500EF2EF7 /* iOMGTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6B876A2475EE8500EF2EF7 /* iOMGTests.swift */; };
 		CF6B87762475EE8500EF2EF7 /* iOMGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6B87752475EE8500EF2EF7 /* iOMGUITests.swift */; };
 		CFECB6562479DA06003B1123 /* FeeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFECB6552479DA06003B1123 /* FeeInfo.swift */; };
+		CFECB659247AA725003B1123 /* URLPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFECB658247AA725003B1123 /* URLPickerView.swift */; };
+		CFECB65B247AAB7F003B1123 /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFECB65A247AAB7F003B1123 /* PersistentContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		CF6B87752475EE8500EF2EF7 /* iOMGUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOMGUITests.swift; sourceTree = "<group>"; };
 		CF6B87772475EE8500EF2EF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CFECB6552479DA06003B1123 /* FeeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeeInfo.swift; sourceTree = "<group>"; };
+		CFECB658247AA725003B1123 /* URLPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLPickerView.swift; sourceTree = "<group>"; };
+		CFECB65A247AAB7F003B1123 /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				CF6B87542475EE8300EF2EF7 /* iOMG.xcdatamodeld */,
+				CFECB65A247AAB7F003B1123 /* PersistentContainer.swift */,
 			);
 			path = coredata;
 			sourceTree = "<group>";
@@ -146,6 +151,7 @@
 				CF0A67DD2478B49A00BCF135 /* explorer */,
 				CF3A6DD12478130700DDEC0F /* price */,
 				CF35633A247886BD00289980 /* stats */,
+				CFECB657247AA710003B1123 /* url */,
 				CF6B87572475EE8300EF2EF7 /* AppView.swift */,
 			);
 			path = views;
@@ -240,6 +246,14 @@
 				CFECB6552479DA06003B1123 /* FeeInfo.swift */,
 			);
 			path = models;
+			sourceTree = "<group>";
+		};
+		CFECB657247AA710003B1123 /* url */ = {
+			isa = PBXGroup;
+			children = (
+				CFECB658247AA725003B1123 /* URLPickerView.swift */,
+			);
+			path = url;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,6 +390,7 @@
 				CF35634224788B4D00289980 /* OMGNetworkStats.swift in Sources */,
 				CF3A6DD52478132500DDEC0F /* PriceViewModel.swift in Sources */,
 				CF6B87512475EE8300EF2EF7 /* AppDelegate.swift in Sources */,
+				CFECB65B247AAB7F003B1123 /* PersistentContainer.swift in Sources */,
 				CF3A6DCE24780C8600DDEC0F /* URLService.swift in Sources */,
 				CF6B87532475EE8300EF2EF7 /* SceneDelegate.swift in Sources */,
 				CFECB6562479DA06003B1123 /* FeeInfo.swift in Sources */,
@@ -389,6 +404,7 @@
 				CF3A6DD024780C8600DDEC0F /* NetworkingProtocol.swift in Sources */,
 				CF6B87562475EE8300EF2EF7 /* iOMG.xcdatamodeld in Sources */,
 				CF35633E2478874200289980 /* StatsViewModel.swift in Sources */,
+				CFECB659247AA725003B1123 /* URLPickerView.swift in Sources */,
 				CF3A6DCF24780C8600DDEC0F /* NetworkingPublisher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
