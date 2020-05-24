@@ -27,6 +27,7 @@ struct HomeView: View {
 }
 
 struct AppView: View {
+    private let viewModel = AppViewModel()
     var body: some View {
         TabView() {
             NavigationView {

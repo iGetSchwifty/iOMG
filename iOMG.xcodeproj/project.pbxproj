@@ -19,6 +19,10 @@
 		CF3A6DD024780C8600DDEC0F /* NetworkingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3A6DCD24780C8600DDEC0F /* NetworkingProtocol.swift */; };
 		CF3A6DD32478131600DDEC0F /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3A6DD22478131600DDEC0F /* PriceView.swift */; };
 		CF3A6DD52478132500DDEC0F /* PriceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3A6DD42478132500DDEC0F /* PriceViewModel.swift */; };
+		CF614EA4247B234A0018DBF0 /* QueuedOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF614EA3247B234A0018DBF0 /* QueuedOperation.swift */; };
+		CF614EA6247B244F0018DBF0 /* BlockDownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF614EA5247B244F0018DBF0 /* BlockDownloadOperation.swift */; };
+		CF614EAA247B27C50018DBF0 /* BlockBatchModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF614EA9247B27C50018DBF0 /* BlockBatchModels.swift */; };
+		CF695E6E247B2FE000AB9393 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF695E6D247B2FE000AB9393 /* AppViewModel.swift */; };
 		CF6B87512475EE8300EF2EF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6B87502475EE8300EF2EF7 /* AppDelegate.swift */; };
 		CF6B87532475EE8300EF2EF7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6B87522475EE8300EF2EF7 /* SceneDelegate.swift */; };
 		CF6B87562475EE8300EF2EF7 /* iOMG.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CF6B87542475EE8300EF2EF7 /* iOMG.xcdatamodeld */; };
@@ -63,6 +67,10 @@
 		CF3A6DCD24780C8600DDEC0F /* NetworkingProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingProtocol.swift; sourceTree = "<group>"; };
 		CF3A6DD22478131600DDEC0F /* PriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceView.swift; sourceTree = "<group>"; };
 		CF3A6DD42478132500DDEC0F /* PriceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceViewModel.swift; sourceTree = "<group>"; };
+		CF614EA3247B234A0018DBF0 /* QueuedOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueuedOperation.swift; sourceTree = "<group>"; };
+		CF614EA5247B244F0018DBF0 /* BlockDownloadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockDownloadOperation.swift; sourceTree = "<group>"; };
+		CF614EA9247B27C50018DBF0 /* BlockBatchModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockBatchModels.swift; sourceTree = "<group>"; };
+		CF695E6D247B2FE000AB9393 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		CF6B874D2475EE8300EF2EF7 /* iOMG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOMG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF6B87502475EE8300EF2EF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF6B87522475EE8300EF2EF7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -153,6 +161,7 @@
 				CF35633A247886BD00289980 /* stats */,
 				CFECB657247AA710003B1123 /* url */,
 				CF6B87572475EE8300EF2EF7 /* AppView.swift */,
+				CF695E6D247B2FE000AB9393 /* AppViewModel.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -175,6 +184,32 @@
 				CF3A6DC824780A4A00DDEC0F /* PriceService.swift */,
 			);
 			path = price;
+			sourceTree = "<group>";
+		};
+		CF614EA2247B23330018DBF0 /* syncronization */ = {
+			isa = PBXGroup;
+			children = (
+				CF614EA7247B27870018DBF0 /* blocks */,
+				CF614EA8247B27900018DBF0 /* transactions */,
+				CF614EA3247B234A0018DBF0 /* QueuedOperation.swift */,
+			);
+			path = syncronization;
+			sourceTree = "<group>";
+		};
+		CF614EA7247B27870018DBF0 /* blocks */ = {
+			isa = PBXGroup;
+			children = (
+				CF614EA5247B244F0018DBF0 /* BlockDownloadOperation.swift */,
+				CF614EA9247B27C50018DBF0 /* BlockBatchModels.swift */,
+			);
+			path = blocks;
+			sourceTree = "<group>";
+		};
+		CF614EA8247B27900018DBF0 /* transactions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = transactions;
 			sourceTree = "<group>";
 		};
 		CF6B87442475EE8300EF2EF7 = {
@@ -200,6 +235,7 @@
 		CF6B874F2475EE8300EF2EF7 /* iOMG */ = {
 			isa = PBXGroup;
 			children = (
+				CF614EA2247B23330018DBF0 /* syncronization */,
 				CF3A6DCA24780C8600DDEC0F /* networking */,
 				CF3A6DC624780A0D00DDEC0F /* coredata */,
 				CF3A6DC724780A1A00DDEC0F /* views */,
@@ -387,8 +423,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF695E6E247B2FE000AB9393 /* AppViewModel.swift in Sources */,
 				CF35634224788B4D00289980 /* OMGNetworkStats.swift in Sources */,
 				CF3A6DD52478132500DDEC0F /* PriceViewModel.swift in Sources */,
+				CF614EA4247B234A0018DBF0 /* QueuedOperation.swift in Sources */,
 				CF6B87512475EE8300EF2EF7 /* AppDelegate.swift in Sources */,
 				CFECB65B247AAB7F003B1123 /* PersistentContainer.swift in Sources */,
 				CF3A6DCE24780C8600DDEC0F /* URLService.swift in Sources */,
@@ -402,9 +440,11 @@
 				CF0A67DC2478B36000BCF135 /* AccountView.swift in Sources */,
 				CF35633C247886E200289980 /* StatsView.swift in Sources */,
 				CF3A6DD024780C8600DDEC0F /* NetworkingProtocol.swift in Sources */,
+				CF614EA6247B244F0018DBF0 /* BlockDownloadOperation.swift in Sources */,
 				CF6B87562475EE8300EF2EF7 /* iOMG.xcdatamodeld in Sources */,
 				CF35633E2478874200289980 /* StatsViewModel.swift in Sources */,
 				CFECB659247AA725003B1123 /* URLPickerView.swift in Sources */,
+				CF614EAA247B27C50018DBF0 /* BlockBatchModels.swift in Sources */,
 				CF3A6DCF24780C8600DDEC0F /* NetworkingPublisher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
