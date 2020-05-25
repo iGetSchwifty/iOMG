@@ -14,19 +14,18 @@ struct BlockOverlay: View {
     let ethHeight: Int64
     let txCount: Int64
     
-    let colors: [Color] = [Color.blue.opacity(0.88), Color.blue.opacity(0.69)]
-    
-    /// gradient
-    var gradient: LinearGradient {
-        LinearGradient(gradient: Gradient(colors: colors),
-                       startPoint: .bottomLeading, endPoint: .center)
-    }
-    
     /// body
     var body: some View {
         ZStack(alignment: .center) {
             
-            Rectangle().fill(gradient).cornerRadius(8)
+            Rectangle()
+                .fill()
+                .foregroundColor(Color.black)
+                .cornerRadius(16)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(Color.blue, lineWidth: 4)
+                )
             
             VStack(alignment: .center) {
                 Text("Block: \(blknum)")
