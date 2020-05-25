@@ -24,24 +24,30 @@ class TransactionViewModel {
         transactionQueue = OperationQueue()
         transactionQueue.qualityOfService = .background
         transactionQueue.maxConcurrentOperationCount = 1
-        
-        let initOp = TransactionDownloadOperation(blknum: self.blknum,
-                                                  txcount: self.txCount,
+    }
+    
+    func onAppear() {
+        let initOp = TransactionDownloadOperation(blknum: blknum,
+                                                  txcount: txCount,
                                                   page: currentPage,
                                                   limit: currentLimit,
-                                                  invokeNext: self.invokeNext)
+                                                  invokeNext: invokeNext)
         transactionQueue.addOperation(initOp)
     }
     
     private func invokeNext(_ success: Bool) {
         semaphore.wait()
-//        if success {
-//            currentPage += 1
-//           // let nextOp = BlockDownloadOperation(page: currentPage, limit: currentLimit, invokeNext: self.invokeNext)
-//            //transactionQueue.addOperation(nextOp)
-//        } else {
-//            currentPage = 1
-//        }
+        if success {
+            currentPage += 1
+           let nextOp = TransactionDownloadOperation(blknum: blknum,
+                                                     txcount: txCount,
+                                                     page: currentPage,
+                                                     limit: currentLimit,
+                                                     invokeNext: invokeNext)
+           transactionQueue.addOperation(nextOp)
+        } else {
+            currentPage = 1
+        }
         semaphore.signal()
     }
 }

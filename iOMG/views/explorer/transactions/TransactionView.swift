@@ -9,10 +9,14 @@
 import SwiftUI
 
 struct TransactionView: View {
-    let blockNumber: Int64
+    let viewModel: TransactionViewModel
     var body: some View {
         VStack {
             Text("Hello from transaction view")
-        }.navigationBarTitle("\(blockNumber)")
+        }
+        .navigationBarTitle("\(viewModel.blknum)")
+        .onAppear {
+            self.viewModel.onAppear()
+        }
     }
 }

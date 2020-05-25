@@ -37,7 +37,7 @@ struct ExplorerView: View {
                 
                 List {
                     ForEach(blocks.filter{String($0.blknum).hasPrefix(searchText) || searchText == ""}, id: \.blknum){ block in
-                        NavigationLink(destination: TransactionView(blockNumber: block.blknum)) {
+                        NavigationLink(destination: TransactionView(viewModel: TransactionViewModel(blknum: block.blknum, ethHeight: block.ethHeight, txCount: block.txCount))) {
                             BlockView(viewModel: BlockViewModel(blknum: block.blknum,
                                                                 ethHeight: block.ethHeight,
                                                                 txCount: block.txCount))
