@@ -37,14 +37,19 @@ struct ExplorerView: View {
                 
                 List {
                     ForEach(blocks.filter{String($0.blknum).hasPrefix(searchText) || searchText == ""}, id: \.blknum){ block in
-                        BlockView(blknum: block.blknum,
-                                  ethHeight: block.ethHeight,
-                                  txCount: block.txCount)
+                        NavigationLink(destination: TransactionView(blockNumber: block.blknum)) {
+                            BlockView(viewModel: BlockViewModel(blknum: block.blknum,
+                                                                ethHeight: block.ethHeight,
+                                                                txCount: block.txCount))
+                        }
                     }
                 }
             } else {
                 Text("Loading blocks...")
             }
-        }.resignKeyboardOnDragGesture()
+        }
+        .resignKeyboardOnDragGesture()
+        .navigationBarTitle("Explorer", displayMode: .inline)
+        .navigationBarHidden(true)
     }
 }

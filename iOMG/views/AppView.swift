@@ -37,11 +37,12 @@ struct AppView: View {
                 Text("Home")
             }.tag(1)
                 
-            ExplorerView()
-                .tabItem {
-                    Image(systemName: "rectangle.expand.vertical")
-                    Text("Explorer")
-                }.tag(2)
+            NavigationView {
+                ExplorerView()
+            }.tabItem {
+                Image(systemName: "rectangle.expand.vertical")
+                Text("Explorer")
+            }.tag(2)
             
             //TODO:
 //            AccountView()

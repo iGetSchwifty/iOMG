@@ -45,18 +45,14 @@ struct BlockOverlay: View {
 }
 
 struct BlockView: View {
-    let blknum: Int64
-    let ethHeight: Int64
-    let txCount: Int64
-
+    let viewModel: BlockViewModel
     var body: some View {
-        
         Rectangle()
             .frame(height: 142)
             .border(Color.gray.opacity(0.5), width: 0.5)
             .cornerRadius(8)
-            .overlay(BlockOverlay(blknum: blknum,
-                                  ethHeight: ethHeight,
-                                  txCount: txCount))
+            .overlay(BlockOverlay(blknum: viewModel.blknum,
+                                  ethHeight: viewModel.ethHeight,
+                                  txCount: viewModel.txCount))
     }
 }
