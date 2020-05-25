@@ -81,9 +81,10 @@ final class BlockDownloadOperation: QueuedOperation {
     }
     
     private func process(response: BlockBatchAPIResponse) -> Bool {
-        let returnVal = !self.checkForCache(block: response.data?.first)
+        var returnVal = !self.checkForCache(block: response.data?.first)
         let context = PersistentContainer.newBackgroundContext()
-        context.performAndWait {
+        context.performAndWait { [weak self] in
+            guard let self = self else { return }
             let fetchReq: NSFetchRequest<Block> = Block.fetchRequest()
             fetchReq.sortDescriptors = [NSSortDescriptor(key: #keyPath(Block.blknum), ascending: false)]
             var foundObjects: [Block]?
@@ -95,8 +96,11 @@ final class BlockDownloadOperation: QueuedOperation {
                 print(error)
             }
             
-            // Goes brrrr....
-            response.data?.forEach({ model in
+            for model in response.data ?? [] {
+                guard !self.isCancelled else {
+                    break
+                }
+                
                 if foundObjects?.contains(where: { obj -> Bool in
                     return obj.blkhash == model.hash
                 }) == false {
@@ -106,9 +110,13 @@ final class BlockDownloadOperation: QueuedOperation {
                     block.ethHeight = model.ethHeight
                     block.txCount = model.txCount
                 }
-            })
+            }
             
             do {
+                guard !self.isCancelled else {
+                    returnVal = false
+                    return
+                }
                 try context.save()
             } catch let error {
                 // TODO: If this was a real project we would do something meaningful with this error

@@ -35,6 +35,8 @@
 		CFECB6562479DA06003B1123 /* FeeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFECB6552479DA06003B1123 /* FeeInfo.swift */; };
 		CFECB659247AA725003B1123 /* URLPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFECB658247AA725003B1123 /* URLPickerView.swift */; };
 		CFECB65B247AAB7F003B1123 /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFECB65A247AAB7F003B1123 /* PersistentContainer.swift */; };
+		CFEE49EA247B7BAA00F9E40A /* extensions+iOMG.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEE49E9247B7BAA00F9E40A /* extensions+iOMG.swift */; };
+		CFEE49EC247B7BED00F9E40A /* BlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEE49EB247B7BED00F9E40A /* BlockView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +91,8 @@
 		CFECB6552479DA06003B1123 /* FeeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeeInfo.swift; sourceTree = "<group>"; };
 		CFECB658247AA725003B1123 /* URLPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLPickerView.swift; sourceTree = "<group>"; };
 		CFECB65A247AAB7F003B1123 /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
+		CFEE49E9247B7BAA00F9E40A /* extensions+iOMG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extensions+iOMG.swift"; sourceTree = "<group>"; };
+		CFEE49EB247B7BED00F9E40A /* BlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +131,7 @@
 		CF0A67DD2478B49A00BCF135 /* explorer */ = {
 			isa = PBXGroup;
 			children = (
+				CFEE49EB247B7BED00F9E40A /* BlockView.swift */,
 				CF0A67DE2478B4AD00BCF135 /* ExplorerView.swift */,
 			);
 			path = explorer;
@@ -241,6 +246,7 @@
 				CF3A6DC724780A1A00DDEC0F /* views */,
 				CF6B87502475EE8300EF2EF7 /* AppDelegate.swift */,
 				CF6B87522475EE8300EF2EF7 /* SceneDelegate.swift */,
+				CFEE49E9247B7BAA00F9E40A /* extensions+iOMG.swift */,
 				CF6B87592475EE8500EF2EF7 /* Assets.xcassets */,
 				CF6B875E2475EE8500EF2EF7 /* LaunchScreen.storyboard */,
 				CF6B87612475EE8500EF2EF7 /* Info.plist */,
@@ -424,6 +430,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF695E6E247B2FE000AB9393 /* AppViewModel.swift in Sources */,
+				CFEE49EC247B7BED00F9E40A /* BlockView.swift in Sources */,
 				CF35634224788B4D00289980 /* OMGNetworkStats.swift in Sources */,
 				CF3A6DD52478132500DDEC0F /* PriceViewModel.swift in Sources */,
 				CF614EA4247B234A0018DBF0 /* QueuedOperation.swift in Sources */,
@@ -438,6 +445,7 @@
 				CF3A6DD32478131600DDEC0F /* PriceView.swift in Sources */,
 				CF0A67DF2478B4AD00BCF135 /* ExplorerView.swift in Sources */,
 				CF0A67DC2478B36000BCF135 /* AccountView.swift in Sources */,
+				CFEE49EA247B7BAA00F9E40A /* extensions+iOMG.swift in Sources */,
 				CF35633C247886E200289980 /* StatsView.swift in Sources */,
 				CF3A6DD024780C8600DDEC0F /* NetworkingProtocol.swift in Sources */,
 				CF614EA6247B244F0018DBF0 /* BlockDownloadOperation.swift in Sources */,

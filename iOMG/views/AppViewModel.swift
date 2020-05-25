@@ -8,6 +8,9 @@
 import Foundation
 
 class AppViewModel {
+    static var lowerLimit: Int64 = 0
+    static var upperLimit: Int64 = 0
+    
     let blockQueue: OperationQueue
     
     private let currentLimit = 250
