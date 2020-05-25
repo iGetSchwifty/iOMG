@@ -9,16 +9,32 @@ import Foundation
 
 class AppViewModel {
     let blockQueue: OperationQueue
+    
+    private let currentLimit = 250
+    private var currentPage = 1
+    
+    private var semaphore = DispatchSemaphore(value: 1)
     init() {
         blockQueue = OperationQueue()
         blockQueue.qualityOfService = .background
         blockQueue.maxConcurrentOperationCount = 1
         
-        let initOp = BlockDownloadOperation(page: 1, limit: 250, invokeNext: self.invokeNext)
+        let initOp = BlockDownloadOperation(page: currentPage, limit: currentLimit, invokeNext: self.invokeNext)
         blockQueue.addOperation(initOp)
     }
     
-    private func invokeNext() {
-        print("Tight")
+    private func invokeNext(_ success: Bool) {
+        semaphore.wait()
+        if success {
+            currentPage += 1
+            let nextOp = BlockDownloadOperation(page: currentPage, limit: currentLimit, invokeNext: self.invokeNext)
+            blockQueue.addOperation(nextOp)
+        } else {
+            currentPage = 1
+        }
+        semaphore.signal()
     }
+    
+    // TODO: A timer that invokes a reload of the initalCurrentPage.
+    // Guard against blockQueue.operations.count == 0 before starting
 }

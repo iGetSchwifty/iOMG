@@ -18,9 +18,9 @@ final class BlockDownloadOperation: QueuedOperation {
     private var provider: NetworkingProtocol?
     private var page: Int
     private var limit: Int
-    private var invokeNext: (() -> Void)?
+    private var invokeNext: ((Bool) -> Void)?
     
-    init(page: Int, limit: Int, invokeNext: (() -> Void)?, provider: NetworkingProtocol = NetworkingPublisher()) {
+    init(page: Int, limit: Int, invokeNext: ((Bool) -> Void)?, provider: NetworkingProtocol = NetworkingPublisher()) {
         self.provider = provider
         self.page = page
         self.limit = limit
@@ -59,7 +59,7 @@ final class BlockDownloadOperation: QueuedOperation {
                     self.cancel()
                     return false
                 }
-                if let response = response, self.checkForCache(block: response.data?.first) == false {
+                if let response = response, response.data?.count ?? 0 > 0 {
                     return self.process(response: response)
                 } else {
                     return false
@@ -76,16 +76,47 @@ final class BlockDownloadOperation: QueuedOperation {
                     self.completed()
                     return
                 }
-                if success ?? false {
-                    self.invokeNext?()
-                }
+                self.invokeNext?(success ?? false)
             })
     }
     
     private func process(response: BlockBatchAPIResponse) -> Bool {
-        
-
-        return false
+        let returnVal = !self.checkForCache(block: response.data?.first)
+        let context = PersistentContainer.newBackgroundContext()
+        context.performAndWait {
+            let fetchReq: NSFetchRequest<Block> = Block.fetchRequest()
+            fetchReq.sortDescriptors = [NSSortDescriptor(key: #keyPath(Block.blknum), ascending: false)]
+            var foundObjects: [Block]?
+            do {
+                foundObjects = try context.fetch(fetchReq)
+            } catch let error {
+                // TODO: If this was a real project we would do something meaningful with this error
+                // for now we just print
+                print(error)
+            }
+            
+            // Goes brrrr....
+            response.data?.forEach({ model in
+                if foundObjects?.contains(where: { obj -> Bool in
+                    return obj.blkhash == model.hash
+                }) == false {
+                    let block = Block(context: context)
+                    block.blkhash = model.hash
+                    block.blknum = model.blknum
+                    block.ethHeight = model.ethHeight
+                    block.txCount = model.txCount
+                }
+            })
+            
+            do {
+                try context.save()
+            } catch let error {
+                // TODO: If this was a real project we would do something meaningful with this error
+                // for now we just print
+                print(error)
+            }
+        }
+        return returnVal
     }
     
     
@@ -100,9 +131,10 @@ final class BlockDownloadOperation: QueuedOperation {
 
             do {
                 let foundObjects = try context.fetch(fetchReq)
-                guard foundObjects.count == 0 else { return }
-                //if foundObjects.first?.blknum
-//                returnVal = true
+                guard foundObjects.count != 0 else { return }
+                if block.blknum > foundObjects.last?.blknum ?? 0 && block.blknum <= foundObjects.first?.blknum ?? block.blknum {
+                    returnVal = true
+                }
             } catch let error {
                 // TODO: If this was a real project we would do something meaningful with this error
                 // for now we just print
