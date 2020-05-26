@@ -17,13 +17,22 @@ struct TransactionView: View {
                 Text("Loading transactions...")
             } else {
                 List {
-                    ForEach(viewModel.transactions, id: \.blknum){ tx in
+                    ForEach(viewModel.transactions, id: \.txhash){ (tx: TransactionData) in
 //                        NavigationLink(destination: TransactionView(viewModel: TransactionViewModel(blknum: block.blknum, ethHeight: block.ethHeight, txCount: block.txCount))) {
 //                            BlockView(viewModel: BlockViewModel(blknum: block.blknum,
 //                                                                ethHeight: block.ethHeight,
 //                                                                txCount: block.txCount))
 //                        }
-                        Text("HEff")
+                        VStack {
+                            Text(tx.txhash ?? "Error getting Tx Hash").font(.footnote).padding()
+                            HStack {
+                                Text("Inputs: \(tx.inputs?.count ?? 0)").font(.system(size: 10)).padding()
+                                
+                                Spacer()
+                                
+                                Text("Outputs: \(tx.outputs?.count ?? 0)").font(.system(size: 10)).padding()
+                            }
+                        }
                     }
                 }
             }

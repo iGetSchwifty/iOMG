@@ -147,6 +147,7 @@ final class TransactionDownloadOperation: QueuedOperation {
                         newInput.txindex = input.txindex
                         newInput.utxo_pos = input.utxo_pos
                         newInput.tx = tx
+                        tx.addToInputs(newInput)
                     }
 
                     model.outputs.forEach { input in
@@ -162,6 +163,7 @@ final class TransactionDownloadOperation: QueuedOperation {
                         newOutput.txindex = input.txindex
                         newOutput.utxo_pos = input.utxo_pos
                         newOutput.tx = tx
+                        tx.addToOutputs(newOutput)
                     }
 
                     tx.block = block
