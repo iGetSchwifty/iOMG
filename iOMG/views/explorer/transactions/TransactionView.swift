@@ -18,17 +18,17 @@ struct TransactionView: View {
             } else {
                 List {
                     ForEach(viewModel.transactions, id: \.txhash){ (tx: TransactionData) in
-//                        NavigationLink(destination: TransactionView(viewModel: TransactionViewModel(blknum: block.blknum, ethHeight: block.ethHeight, txCount: block.txCount))) {
-//                            BlockView(viewModel: BlockViewModel(blknum: block.blknum,
-//                                                                ethHeight: block.ethHeight,
-//                                                                txCount: block.txCount))
-//                        }
+                        // TODO: Since we saved Inputs & outputs in CoreData. We should make these clickable to show more details. However, going to stop it for now so I can get a testflight out asap
+                        
                         VStack {
                             Text(tx.txhash ?? "Error getting Tx Hash").font(.footnote).padding()
                             HStack {
                                 Text("Inputs: \(tx.inputs?.count ?? 0)").font(.system(size: 10)).padding()
-                                
-                                Spacer()
+                                if tx.inputs?.count == 0 {
+                                    Text("FEE").bold().foregroundColor(.green)
+                                } else {
+                                    Spacer()
+                                }
                                 
                                 Text("Outputs: \(tx.outputs?.count ?? 0)").font(.system(size: 10)).padding()
                             }
