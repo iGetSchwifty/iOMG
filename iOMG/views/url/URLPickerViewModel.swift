@@ -9,19 +9,41 @@
 import SwiftUI
 
 class URLPickerViewModel {
-    @State var customURL: String = ""
+    var customURL: String = ""
+    let reload: (() -> Void)?
+    let reloadExplorer: (() -> Void)?
     
-    init() {}
+    init(reload: (() -> Void)?, reloadExplorer: (() -> Void)?) {
+        self.reload = reload
+        self.reloadExplorer = reloadExplorer
+    }
     
     func switchToMainNet() {
-        
+        switch URLService.currentEnv() {
+        case .mainNet: break
+        default:
+            URLService.save(env: .mainNet)
+            PersistentContainer.clear()
+            updateApp()
+        }
     }
     
     func switchToTestNet() {
-        
+        switch URLService.currentEnv() {
+        case .testNet: break
+        default:
+            URLService.save(env: .testNet)
+            PersistentContainer.clear()
+            updateApp()
+        }
     }
     
     func saveCustomURL() {
         
+    }
+    
+    private func updateApp() {
+        reload?()
+        reloadExplorer?()
     }
 }

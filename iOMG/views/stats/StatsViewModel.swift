@@ -11,6 +11,7 @@ import Combine
 import Foundation
 
 class StatsViewModel: ObservableObject {
+    let reloadExplorer: (() -> Void)?
     @Published var currentStats: OMGNetworkStats? = nil
     @Published var currentFeeInfo: FeeInfo? = nil
     private let provider: NetworkingProtocol
@@ -18,8 +19,9 @@ class StatsViewModel: ObservableObject {
     private var isFetching = false
     private var isFetchingFee = false
     
-    init(provider: NetworkingProtocol = NetworkingPublisher()) {
+    init(reloadExplorer: (() -> Void)?, provider: NetworkingProtocol = NetworkingPublisher()) {
         self.provider = provider
+        self.reloadExplorer = reloadExplorer
         fetch()
     }
     

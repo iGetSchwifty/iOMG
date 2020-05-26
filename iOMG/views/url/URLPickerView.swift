@@ -8,10 +8,19 @@
 import SwiftUI
 
 struct URLPickerView: View {
-    let viewModel = URLPickerViewModel()
+    let viewModel: URLPickerViewModel
     
     var body: some View {
-        VStack {
+        // TODO: use for custom URL textField
+//        let binding = Binding<String>(get: {
+//            self.viewModel.customURL
+//        }, set: {
+//            self.viewModel.customURL = $0
+//        })
+        return VStack(spacing: 50) {
+            Text("***NOTE***").font(.title)
+            Text("This removes the local DB and downloads all of the blocks again. Switch env as you need but dont switch just for fun or else its just unneeded band width getting wasted since this app pages the entire blockchain to store it locally").font(.system(size: 12)).padding()
+            
             Button(action: {
                 self.viewModel.switchToMainNet()
             }) {
@@ -24,18 +33,20 @@ struct URLPickerView: View {
                 Text("Testnet")
             }
 
-            HStack {
-                TextField("Custom URL", text: viewModel.$customURL)
-                .padding()
-                .cornerRadius(10)
-                .border(Color.gray.opacity(0.5), width: 0.5)
-                
-                Button(action: {
-                    self.viewModel.saveCustomURL()
-                }) {
-                    Text("Save")
-                }
-            }
+            //TODO: Fix custom
+            Text("Custom URL coming soon")
+//            HStack {
+//                TextField("Custom URL", text: binding)
+//                .padding()
+//                .cornerRadius(10)
+//                .border(Color.gray.opacity(0.5), width: 0.5)
+//
+//                Button(action: {
+//                    self.viewModel.saveCustomURL()
+//                }) {
+//                    Text("Save")
+//                }
+//            }
         }
     }
 }

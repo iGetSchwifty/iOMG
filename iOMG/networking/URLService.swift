@@ -8,14 +8,14 @@
 
 import Foundation
 
-fileprivate enum Env {
+enum Env {
     case testNet
     case mainNet
     case customURL(String)
 }
 
 class URLService {
-    static let envKey = "envKey"
+    private static let envKey = "envKey"
     static let omgPrice = URL(string: "https://www.cryptocompare.com/coins/omg/overview/USD")!
     
     private static var baseURL: String {
@@ -33,12 +33,35 @@ class URLService {
     private static let testNet = "https://watcher-info.ropsten.v1.omg.network"
     private static let mainNet = "https://watcher-info.mainnet.v1.omg.network"
     
-    static let networkStats = URL(string: "\(baseURL)/stats.get")!
-    static let feeInfo = URL(string: "\(baseURL)/fees.all")!
-    static let blockInfo = URL(string: "\(baseURL)/block.all")!
-    static let transactionInfo = URL(string: "\(baseURL)/transaction.all")!
+    static var networkStats: URL {
+        return URL(string: "\(baseURL)/stats.get")!
+    }
+    
+    static var feeInfo: URL {
+        return URL(string: "\(baseURL)/fees.all")!
+    }
+    
+    static var blockInfo: URL {
+        return URL(string: "\(baseURL)/block.all")!
+    }
+    
+    static var transactionInfo: URL {
+        return URL(string: "\(baseURL)/transaction.all")!
+    }
+    
+    static func currentEnv() -> Env {
+        let currentEnv = env()
+        switch currentEnv {
+        case testNet:
+            return .testNet
+        case mainNet:
+            return .mainNet
+        default:
+            return .customURL(currentEnv ?? "")
+        }
+    }
 
-    private static func save(env: Env) {
+    static func save(env: Env) {
         let urlToSave: String
         switch env {
         case .testNet:

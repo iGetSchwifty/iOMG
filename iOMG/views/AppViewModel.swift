@@ -23,6 +23,15 @@ class AppViewModel {
         blockQueue.addOperation(initOp)
     }
     
+    func reloadExplorer() {
+        blockQueue.cancelAllOperations()
+        semaphore.wait()
+        currentPage = 1
+        semaphore.signal()
+        let initOp = BlockDownloadOperation(page: currentPage, limit: currentLimit, invokeNext: self.invokeNext)
+        blockQueue.addOperation(initOp)
+    }
+    
     private func invokeNext(_ success: Bool) {
         semaphore.wait()
         if success {

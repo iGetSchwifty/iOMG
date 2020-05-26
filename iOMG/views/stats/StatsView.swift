@@ -9,7 +9,8 @@
 import SwiftUI
 
 struct StatsView: View {
-    @ObservedObject var viewModel = StatsViewModel()
+    @ObservedObject var viewModel: StatsViewModel
+    
     var body: some View {
         VStack {
             if viewModel.currentStats == nil {
@@ -84,7 +85,8 @@ struct StatsView: View {
                     Text("Version: \(viewModel.currentStats!.version)")
                         .font(.footnote)
                     
-                    NavigationLink(destination: URLPickerView()) {
+                    NavigationLink(destination: URLPickerView(viewModel: URLPickerViewModel(reload: self.viewModel.reload,
+                                                                                            reloadExplorer: self.viewModel.reloadExplorer))) {
                         HStack {
                             Image(systemName: "square.stack.3d.down.dottedline")
                             Text("Change")
@@ -95,12 +97,5 @@ struct StatsView: View {
         }.onAppear {
             self.viewModel.reload()
         }
-    }
-}
-
-
-struct StatsView_Previews: PreviewProvider {
-    static var previews: some View {
-        StatsView()
     }
 }

@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    let reloadExplorer: (() -> Void)?
     var body: some View {
         ScrollView {
             VStack {
@@ -16,7 +17,7 @@ struct HomeView: View {
                         
                 Spacer()
                         
-                StatsView()
+                StatsView(viewModel: StatsViewModel(reloadExplorer: reloadExplorer))
             }.frame(minWidth: 0, maxWidth: .infinity,
                     minHeight: 0, maxHeight: .infinity,
                     alignment: .center)
@@ -31,7 +32,7 @@ struct AppView: View {
     var body: some View {
         TabView() {
             NavigationView {
-                HomeView()
+                HomeView(reloadExplorer: viewModel.reloadExplorer)
             }.tabItem {
                 Image(systemName: "rhombus")
                 Text("Home")
