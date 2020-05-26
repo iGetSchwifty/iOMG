@@ -20,7 +20,7 @@ struct PriceView: View {
                 
                 Image("omisego")
                     .resizable()
-                    .scaledToFill()
+                    .scaledToFit()
                     .frame(width: 144, height: 144)
                     .rotationEffect(.degrees(rotation))
                     .animation(.easeInOut)
