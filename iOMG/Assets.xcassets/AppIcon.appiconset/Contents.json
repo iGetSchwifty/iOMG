@@ -80,11 +80,13 @@
       "size" : "76x76"
     },
     {
+      "filename" : "mainIcon_152.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "76x76"
     },
     {
+      "filename" : "mainIcon_167.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "83.5x83.5"
