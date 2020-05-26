@@ -14,14 +14,15 @@ struct PriceView: View {
     @State var isSpinning = false
     var body: some View {
         VStack {
-            Text("OMG Network").font(.body).padding().foregroundColor(.blue)
+            Text("OMG Network").font(.title).foregroundColor(.blue).multilineTextAlignment(.center)
+            
             VStack {
                 Text("Tap to reload price").font(.system(size: 10))
                 
                 Image("omisego")
                     .resizable()
-                    .scaledToFit()
-                    .frame(width: 144, height: 144)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 88, height: 88)
                     .rotationEffect(.degrees(rotation))
                     .animation(.easeInOut)
             }

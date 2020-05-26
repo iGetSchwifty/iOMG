@@ -21,7 +21,7 @@ struct BlockOverlay: View {
             Rectangle()
                 .fill()
                 .foregroundColor(Color.black)
-                .cornerRadius(16)
+                .cornerRadius(10)
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
                         .stroke(Color.blue, lineWidth: 4)
@@ -54,5 +54,11 @@ struct BlockView: View {
             .overlay(BlockOverlay(blknum: viewModel.blknum,
                                   ethHeight: viewModel.ethHeight,
                                   txCount: viewModel.txCount))
+    }
+}
+
+struct BlockView_Previews: PreviewProvider {
+    static var previews: some View {
+        BlockView(viewModel: BlockViewModel(blknum: 42, ethHeight: 42, txCount: 42))
     }
 }

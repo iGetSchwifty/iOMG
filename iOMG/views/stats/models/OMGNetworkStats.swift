@@ -24,8 +24,8 @@ struct OMGInfoData: Codable {
 }
 
 struct InfoPacket: Codable {
-    var allTime: Double
-    var lastTwentyFour: Double
+    var allTime: Double?
+    var lastTwentyFour: Double?
     
     private enum CodingKeys: String, CodingKey {
         case allTime = "all_time"

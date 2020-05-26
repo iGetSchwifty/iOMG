@@ -42,6 +42,7 @@
 		CFECB65B247AAB7F003B1123 /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFECB65A247AAB7F003B1123 /* PersistentContainer.swift */; };
 		CFEE49EA247B7BAA00F9E40A /* extensions+iOMG.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEE49E9247B7BAA00F9E40A /* extensions+iOMG.swift */; };
 		CFEE49EC247B7BED00F9E40A /* BlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEE49EB247B7BED00F9E40A /* BlockView.swift */; };
+		CFF7AA37247D70BA0012584A /* TransactionDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF7AA36247D70BA0012584A /* TransactionDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		CFECB65A247AAB7F003B1123 /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
 		CFEE49E9247B7BAA00F9E40A /* extensions+iOMG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extensions+iOMG.swift"; sourceTree = "<group>"; };
 		CFEE49EB247B7BED00F9E40A /* BlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockView.swift; sourceTree = "<group>"; };
+		CFF7AA36247D70BA0012584A /* TransactionDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 		CF04E024247C53B1008229AD /* transactions */ = {
 			isa = PBXGroup;
 			children = (
+				CFF7AA34247D709A0012584A /* transactionDetails */,
 				CF04E01B247C4AD6008229AD /* TransactionView.swift */,
 				CF04E025247C53C2008229AD /* TransactionViewModel.swift */,
 			);
@@ -329,6 +332,14 @@
 			path = url;
 			sourceTree = "<group>";
 		};
+		CFF7AA34247D709A0012584A /* transactionDetails */ = {
+			isa = PBXGroup;
+			children = (
+				CFF7AA36247D70BA0012584A /* TransactionDetailsView.swift */,
+			);
+			path = transactionDetails;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -473,6 +484,7 @@
 				CF6B87532475EE8300EF2EF7 /* SceneDelegate.swift in Sources */,
 				CF04E020247C4BDF008229AD /* TransactionBatchModels.swift in Sources */,
 				CFECB6562479DA06003B1123 /* FeeInfo.swift in Sources */,
+				CFF7AA37247D70BA0012584A /* TransactionDetailsView.swift in Sources */,
 				CF6B87582475EE8300EF2EF7 /* AppView.swift in Sources */,
 				CF3A6DC924780A4A00DDEC0F /* PriceService.swift in Sources */,
 				CF3563402478875B00289980 /* StatsService.swift in Sources */,
