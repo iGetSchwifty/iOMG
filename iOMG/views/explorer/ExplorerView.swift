@@ -17,34 +17,73 @@
 //  gets around this problem while dealing with large datasets from CoreData
 //
 import SwiftUI
+import Combine
 
 struct ExplorerView: View {
-    
-    @State private var searchText = ""
+    @State var searchText = ""
+    @State var showCancelButton: Bool = false
+    @ObservedObject var viewModel = ExplorerViewModel()
 
     //   TODO: SINCE I CHANGE to store the UInt as a string in coredata for simplicity. I messed up the sort order
     //  FIX IT HERE by creating a viewModel and doing all this stuff async to not block the view...
-    @FetchRequest(entity: Block.entity(),
-                  sortDescriptors: [NSSortDescriptor(key: #keyPath(Block.blknum), ascending: false)]
-    )
-    var blocks: FetchedResults<Block>
+//    @FetchRequest(entity: Block.entity(),
+//                  sortDescriptors: [NSSortDescriptor(key: #keyPath(Block.blknum), ascending: false)]
+//    )
+//    var blocks: FetchedResults<Block>
     
     var body: some View {
-        VStack {
-            if blocks.first != nil {
-                TextField("Search by block number",text: $searchText)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding()
+        return VStack {
+//            HStack {
+//                TextField("Search by block number", text: $viewModel.searchText)
+//                    .textFieldStyle(RoundedBorderTextFieldStyle())
+//                    .padding()
+//
+//                Button(action: {
+//                    self.viewModel.updateBlocks()
+//                }) {
+//                    Text("Search")
+//                }
+//            }
+            if viewModel.blocks.first != nil {
+                HStack {
+                    HStack {
+                        Image(systemName: "magnifyingglass")
+
+                        TextField("search", text: $searchText, onEditingChanged: { isEditing in
+                            self.showCancelButton = true
+                        }).foregroundColor(.primary)
+
+                        Button(action: {
+                            self.searchText = ""
+                        }) {
+                            Image(systemName: "xmark.circle.fill").opacity(self.searchText == "" ? 0 : 1)
+                        }
+                    }
+                    .padding(EdgeInsets(top: 8, leading: 6, bottom: 8, trailing: 6))
+                    .foregroundColor(.secondary)
+                    .background(Color(.secondarySystemBackground))
+                    .cornerRadius(10.0)
+
+                    if showCancelButton  {
+                        Button("Cancel") {
+                            UIApplication.shared.endEditing(true) // this must be placed before the other commands here
+                            self.searchText = ""
+                            self.showCancelButton = false
+                        }
+                        .foregroundColor(Color(.systemBlue))
+                    }
+                }
+                .padding(.horizontal)
+                .navigationBarHidden(self.showCancelButton)
                 // Could throw up a loading indicator when searching.. Not sure how since we are doing a filter...
-                
                 List {
-                    ForEach(blocks.filter{($0.blknum?.hasPrefix(searchText) ?? false) || searchText == ""}, id: \.blknum){ (entity: Block) in
+                    ForEach(viewModel.blocks.filter{($0.blknum?.hasPrefix(searchText) ?? false) || searchText == ""}, id: \.blknum) { (entity: Block) in
                         NavigationLink(destination:
                             TransactionView(viewModel: TransactionViewModel(blknum: UInt64(entity.blknum ?? "") ?? 0,
                                                                             ethHeight: UInt64(entity.ethHeight ?? "") ?? 0,
                                                                             txCount: UInt64(entity.txCount ?? "") ?? 0))
                         ) {
-                                                                                
+
                             BlockView(viewModel: BlockViewModel(blknum: UInt64(entity.blknum ?? "") ?? 0,
                                                                 ethHeight: UInt64(entity.ethHeight ?? "") ?? 0,
                                                                 txCount: UInt64(entity.txCount ?? "") ?? 0))

@@ -22,10 +22,11 @@ class URLService {
         var current = env()
         if current == nil {
             // TODO: Comment this
-            //current = mainNet
-            //save(env: .mainNet)
-            current = testNet
-            save(env: .testNet)
+            current = mainNet
+            save(env: .mainNet)
+            //TODO: COMMENT THIS WHEN DEVELOPING TO NOT DEFAULT TO MAINNET
+//            current = testNet
+//            save(env: .testNet)
         }
         return current!
     }

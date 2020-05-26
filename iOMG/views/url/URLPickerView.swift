@@ -9,7 +9,7 @@ import SwiftUI
 
 struct URLPickerView: View {
     let viewModel: URLPickerViewModel
-    
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
         // TODO: use for custom URL textField
 //        let binding = Binding<String>(get: {
@@ -18,17 +18,20 @@ struct URLPickerView: View {
 //            self.viewModel.customURL = $0
 //        })
         return VStack(spacing: 50) {
+            Text("Current Network: \(currentNet())").font(.title)
             Text("***NOTE***").font(.title)
             Text("This removes the local DB and downloads all of the blocks again. Switch env as you need but dont switch just for fun or else its just unneeded band width getting wasted since this app pages the entire blockchain to store it locally").font(.system(size: 12)).padding()
             
             Button(action: {
                 self.viewModel.switchToMainNet()
+                self.presentationMode.wrappedValue.dismiss()
             }) {
                 Text("Mainnet")
             }
             
             Button(action: {
                 self.viewModel.switchToTestNet()
+                self.presentationMode.wrappedValue.dismiss()
             }) {
                 Text("Testnet")
             }
@@ -47,6 +50,17 @@ struct URLPickerView: View {
 //                    Text("Save")
 //                }
 //            }
+        }
+    }
+    
+    private func currentNet() -> String {
+        switch URLService.currentEnv() {
+        case .testNet:
+            return "Testnet"
+        case .mainNet:
+            return "Mainnet"
+        case .customURL(_):
+            return "Unknown"
         }
     }
 }
