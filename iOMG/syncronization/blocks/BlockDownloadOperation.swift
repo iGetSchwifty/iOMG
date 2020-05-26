@@ -117,6 +117,7 @@ final class BlockDownloadOperation: QueuedOperation {
                     returnVal = false
                     return
                 }
+                guard context.hasChanges else { return }
                 try context.save()
             } catch let error {
                 // TODO: If this was a real project we would do something meaningful with this error

@@ -5,25 +5,31 @@
 //  Created by Tacenda on 5/25/20.
 //  Copyright © 2020 Tacenda. All rights reserved.
 //
-
+import Combine
 import SwiftUI
 
 struct TransactionView: View {
-    @State static var currentBlockToLookAt: Int64 = 0
-    let viewModel: TransactionViewModel
+    @ObservedObject var viewModel: TransactionViewModel
     
-    @FetchRequest(entity: TransactionData.entity(),
-                  sortDescriptors: [NSSortDescriptor(key: #keyPath(TransactionData.txindex), ascending: false)],
-                  predicate: NSPredicate(format: "%K = %ld", #keyPath(TransactionData.blknum), TransactionView.currentBlockToLookAt)
-    )
-    var blocks: FetchedResults<Block>
     var body: some View {
         VStack {
-            Text("Hello from transaction view")
+            if viewModel.transactions.count == 0 {
+                Text("Loading transactions...")
+            } else {
+                List {
+                    ForEach(viewModel.transactions, id: \.blknum){ tx in
+//                        NavigationLink(destination: TransactionView(viewModel: TransactionViewModel(blknum: block.blknum, ethHeight: block.ethHeight, txCount: block.txCount))) {
+//                            BlockView(viewModel: BlockViewModel(blknum: block.blknum,
+//                                                                ethHeight: block.ethHeight,
+//                                                                txCount: block.txCount))
+//                        }
+                        Text("HEff")
+                    }
+                }
+            }
         }
-        .navigationBarTitle("\(viewModel.blknum)")
+        .navigationBarTitle("Block: \(viewModel.blknum)")
         .onAppear {
-            TransactionView.currentBlockToLookAt = self.viewModel.blknum
             self.viewModel.onAppear()
         }
     }
