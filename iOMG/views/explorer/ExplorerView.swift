@@ -36,11 +36,16 @@ struct ExplorerView: View {
                 // Could throw up a loading indicator when searching.. Not sure how since we are doing a filter...
                 
                 List {
-                    ForEach(blocks.filter{String($0.blknum).hasPrefix(searchText) || searchText == ""}, id: \.blknum){ block in
-                        NavigationLink(destination: TransactionView(viewModel: TransactionViewModel(blknum: block.blknum, ethHeight: block.ethHeight, txCount: block.txCount))) {
-                            BlockView(viewModel: BlockViewModel(blknum: block.blknum,
-                                                                ethHeight: block.ethHeight,
-                                                                txCount: block.txCount))
+                    ForEach(blocks.filter{($0.blknum?.hasPrefix(searchText) ?? false) || searchText == ""}, id: \.blknum){ (entity: Block) in
+                        NavigationLink(destination:
+                            TransactionView(viewModel: TransactionViewModel(blknum: UInt64(entity.blknum ?? "") ?? 0,
+                                                                            ethHeight: UInt64(entity.ethHeight ?? "") ?? 0,
+                                                                            txCount: UInt64(entity.txCount ?? "") ?? 0))
+                        ) {
+                                                                                
+                            BlockView(viewModel: BlockViewModel(blknum: UInt64(entity.blknum ?? "") ?? 0,
+                                                                ethHeight: UInt64(entity.ethHeight ?? "") ?? 0,
+                                                                txCount: UInt64(entity.txCount ?? "") ?? 0))
                         }
                     }
                 }

@@ -21,8 +21,11 @@ class URLService {
     private static var baseURL: String {
         var current = env()
         if current == nil {
-            current = mainNet
-            save(env: .mainNet)
+            // TODO: Comment this
+            //current = mainNet
+            //save(env: .mainNet)
+            current = testNet
+            save(env: .testNet)
         }
         return current!
     }

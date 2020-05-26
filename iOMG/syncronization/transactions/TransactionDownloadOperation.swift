@@ -19,11 +19,11 @@ final class TransactionDownloadOperation: QueuedOperation {
     private var provider: NetworkingProtocol?
     private let page: Int
     private let limit: Int
-    private let blknum: Int64
-    private let txcount: Int64
+    private let blknum: UInt64
+    private let txcount: UInt64
     private var invokeNext: ((Bool) -> Void)?
     
-    init(blknum: Int64, txcount: Int64, page: Int, limit: Int, invokeNext: ((Bool) -> Void)?, provider: NetworkingProtocol = NetworkingPublisher()) {
+    init(blknum: UInt64, txcount: UInt64, page: Int, limit: Int, invokeNext: ((Bool) -> Void)?, provider: NetworkingProtocol = NetworkingPublisher()) {
         self.provider = provider
         self.page = page
         self.limit = limit
@@ -130,38 +130,38 @@ final class TransactionDownloadOperation: QueuedOperation {
                     tx.metadata = model.metadata
                     tx.txbytes = model.txbytes
                     tx.txhash = model.txhash
-                    tx.txtype = model.txtype
-                    tx.txindex = model.txindex
-                    tx.blknum = self.blknum
+                    tx.txtype = String(model.txtype)
+                    tx.txindex = String(model.txindex)
+                    tx.blknum = String(self.blknum)
 
                     model.inputs.forEach { input in
                         let newInput = TxInput(context: context)
-                        newInput.amount = input.amount
-                        newInput.blknum = input.blknum
+                        newInput.amount = String(input.amount)
+                        newInput.blknum = String(input.blknum)
                         newInput.creating_txhash = input.creating_txhash
                         newInput.currency = input.currency
-                        newInput.oindex = input.oindex
-                        newInput.otype = input.otype
-                        newInput.owner = input.owner
+                        newInput.oindex = String(input.oindex)
+                        newInput.otype = String(input.otype)
+                        newInput.owner = String(input.owner)
                         newInput.spending_txhash = input.spending_txhash
-                        newInput.txindex = input.txindex
-                        newInput.utxo_pos = input.utxo_pos
+                        newInput.txindex = String(input.txindex)
+                        newInput.utxo_pos = String(input.utxo_pos)
                         newInput.tx = tx
                         tx.addToInputs(newInput)
                     }
 
                     model.outputs.forEach { input in
                         let newOutput = TxOutput(context: context)
-                        newOutput.amount = input.amount
-                        newOutput.blknum = input.blknum
+                        newOutput.amount = String(input.amount)
+                        newOutput.blknum = String(input.blknum)
                         newOutput.creating_txhash = input.creating_txhash
                         newOutput.currency = input.currency
-                        newOutput.oindex = input.oindex
-                        newOutput.otype = input.otype
+                        newOutput.oindex = String(input.oindex)
+                        newOutput.otype = String(input.otype)
                         newOutput.owner = input.owner
                         newOutput.spending_txhash = input.spending_txhash
-                        newOutput.txindex = input.txindex
-                        newOutput.utxo_pos = input.utxo_pos
+                        newOutput.txindex = String(input.txindex)
+                        newOutput.utxo_pos = String(input.utxo_pos)
                         newOutput.tx = tx
                         tx.addToOutputs(newOutput)
                     }

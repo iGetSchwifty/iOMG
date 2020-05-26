@@ -11,7 +11,7 @@ import Foundation
 struct TransactionPageData: Codable {
     var page: Int
     var limit: Int
-    var blknum: Int64
+    var blknum: UInt64
 }
 
 struct TransactionBatchAPIResponse: Codable {
@@ -27,8 +27,8 @@ struct TransactionBatchAPIResponse: Codable {
 }
 
 struct TransactionBatchModel: Codable {
-    var txindex: Int64
-    var txtype: Int64
+    var txindex: UInt64
+    var txtype: UInt64
     var txhash: String
     var metadata: String?
     var txbytes: String
@@ -37,14 +37,14 @@ struct TransactionBatchModel: Codable {
 }
 
 struct TransactionAPIData: Codable {
-    var blknum: Int64
-    var txindex: Int64
-    var otype: Int64
-    var oindex: Int64
-    var utxo_pos: Int64
+    var blknum: UInt64
+    var txindex: UInt64
+    var otype: UInt64
+    var oindex: UInt64
+    var utxo_pos: UInt64
     var owner: String
     var currency: String
     var creating_txhash: String?
     var spending_txhash: String?
-    var amount: Int64
+    var amount: UInt64
 }

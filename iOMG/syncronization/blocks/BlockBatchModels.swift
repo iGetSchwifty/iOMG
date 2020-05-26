@@ -25,10 +25,10 @@ struct PageData: Codable {
 }
 
 struct BlockBatchModel: Codable {
-    var blknum: Int64
+    var blknum: UInt64
     var hash: String
-    var ethHeight: Int64
-    var txCount: Int64
+    var ethHeight: UInt64
+    var txCount: UInt64
     
     private enum CodingKeys: String, CodingKey {
         case blknum

@@ -106,9 +106,9 @@ final class BlockDownloadOperation: QueuedOperation {
                 }) == false {
                     let block = Block(context: context)
                     block.blkhash = model.hash
-                    block.blknum = model.blknum
-                    block.ethHeight = model.ethHeight
-                    block.txCount = model.txCount
+                    block.blknum = String(model.blknum)
+                    block.ethHeight = String(model.ethHeight)
+                    block.txCount = String(model.txCount)
                 }
             }
             
@@ -141,7 +141,7 @@ final class BlockDownloadOperation: QueuedOperation {
             do {
                 let foundObjects = try context.fetch(fetchReq)
                 guard foundObjects.count != 0 else { return }
-                if block.blknum > foundObjects.last?.blknum ?? 0 && block.blknum <= foundObjects.first?.blknum ?? block.blknum {
+                if block.blknum > UInt64(foundObjects.last?.blknum ?? "0") ?? 0, block.blknum <= UInt64(foundObjects.first?.blknum ?? "0") ?? block.blknum {
                     returnVal = true
                 }
             } catch let error {

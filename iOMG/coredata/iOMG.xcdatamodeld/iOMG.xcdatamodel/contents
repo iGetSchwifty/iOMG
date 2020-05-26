@@ -2,52 +2,52 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Block" representedClassName="Block" syncable="YES" codeGenerationType="class">
         <attribute name="blkhash" optional="YES" attributeType="String"/>
-        <attribute name="blknum" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="ethHeight" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="txCount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="blknum" attributeType="String"/>
+        <attribute name="ethHeight" optional="YES" attributeType="String"/>
+        <attribute name="txCount" optional="YES" attributeType="String"/>
         <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TransactionData" inverseName="block" inverseEntity="TransactionData"/>
     </entity>
     <entity name="TransactionData" representedClassName="TransactionData" syncable="YES" codeGenerationType="class">
-        <attribute name="blknum" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="blknum" attributeType="String"/>
         <attribute name="metadata" optional="YES" attributeType="String"/>
         <attribute name="txbytes" attributeType="String"/>
         <attribute name="txhash" attributeType="String"/>
-        <attribute name="txindex" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="txtype" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="txindex" attributeType="String"/>
+        <attribute name="txtype" attributeType="String"/>
         <relationship name="block" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Block" inverseName="transactions" inverseEntity="Block"/>
         <relationship name="inputs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TxInput" inverseName="tx" inverseEntity="TxInput"/>
         <relationship name="outputs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TxOutput" inverseName="tx" inverseEntity="TxOutput"/>
     </entity>
     <entity name="TxInput" representedClassName="TxInput" syncable="YES" codeGenerationType="class">
-        <attribute name="amount" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="blknum" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="amount" attributeType="String"/>
+        <attribute name="blknum" attributeType="String"/>
         <attribute name="creating_txhash" optional="YES" attributeType="String"/>
         <attribute name="currency" attributeType="String"/>
-        <attribute name="oindex" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="otype" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="oindex" attributeType="String"/>
+        <attribute name="otype" attributeType="String"/>
         <attribute name="owner" attributeType="String"/>
         <attribute name="spending_txhash" optional="YES" attributeType="String"/>
-        <attribute name="txindex" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="utxo_pos" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="txindex" attributeType="String"/>
+        <attribute name="utxo_pos" attributeType="String"/>
         <relationship name="tx" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TransactionData" inverseName="inputs" inverseEntity="TransactionData"/>
     </entity>
     <entity name="TxOutput" representedClassName="TxOutput" syncable="YES" codeGenerationType="class">
-        <attribute name="amount" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="blknum" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="amount" attributeType="String"/>
+        <attribute name="blknum" attributeType="String"/>
         <attribute name="creating_txhash" optional="YES" attributeType="String"/>
         <attribute name="currency" attributeType="String"/>
-        <attribute name="oindex" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="otype" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="oindex" attributeType="String"/>
+        <attribute name="otype" attributeType="String"/>
         <attribute name="owner" attributeType="String"/>
         <attribute name="spending_txhash" optional="YES" attributeType="String"/>
-        <attribute name="txindex" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="utxo_pos" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="txindex" attributeType="String"/>
+        <attribute name="utxo_pos" attributeType="String"/>
         <relationship name="tx" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TransactionData" inverseName="outputs" inverseEntity="TransactionData"/>
     </entity>
     <elements>
         <element name="Block" positionX="-63" positionY="-18" width="128" height="118"/>
         <element name="TransactionData" positionX="-63" positionY="9" width="128" height="178"/>
-        <element name="TxInput" positionX="-54" positionY="36" width="128" height="28"/>
-        <element name="TxOutput" positionX="-45" positionY="36" width="128" height="28"/>
+        <element name="TxInput" positionX="-54" positionY="36" width="128" height="208"/>
+        <element name="TxOutput" positionX="-45" positionY="36" width="128" height="208"/>
     </elements>
 </model>

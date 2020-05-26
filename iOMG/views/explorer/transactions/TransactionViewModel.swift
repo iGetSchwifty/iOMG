@@ -10,9 +10,9 @@ import Foundation
 import CoreData
 
 class TransactionViewModel: NSObject, NSFetchedResultsControllerDelegate, ObservableObject  {
-    let blknum: Int64
-    let ethHeight: Int64
-    let txCount: Int64
+    let blknum: UInt64
+    let ethHeight: UInt64
+    let txCount: UInt64
     let transactionQueue: OperationQueue
     
     @Published var transactions: [TransactionData] = []
@@ -23,7 +23,7 @@ class TransactionViewModel: NSObject, NSFetchedResultsControllerDelegate, Observ
     private var controller: NSFetchedResultsController<TransactionData>?
     
     private var semaphore = DispatchSemaphore(value: 1)
-    init(blknum: Int64, ethHeight: Int64, txCount: Int64) {
+    init(blknum: UInt64, ethHeight: UInt64, txCount: UInt64) {
         self.blknum = blknum
         self.ethHeight = ethHeight
         self.txCount = txCount

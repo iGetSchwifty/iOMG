@@ -10,9 +10,9 @@ import SwiftUI
 
 struct BlockOverlay: View {
 
-    let blknum: Int64
-    let ethHeight: Int64
-    let txCount: Int64
+    let blknum: UInt64
+    let ethHeight: UInt64
+    let txCount: UInt64
     
     /// body
     var body: some View {
