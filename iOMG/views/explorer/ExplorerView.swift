@@ -22,6 +22,8 @@ struct ExplorerView: View {
     
     @State private var searchText = ""
 
+    //   TODO: SINCE I CHANGE to store the UInt as a string in coredata for simplicity. I messed up the sort order
+    //  FIX IT HERE by creating a viewModel and doing all this stuff async to not block the view...
     @FetchRequest(entity: Block.entity(),
                   sortDescriptors: [NSSortDescriptor(key: #keyPath(Block.blknum), ascending: false)]
     )

@@ -37,6 +37,7 @@
 		CF6B87602475EE8500EF2EF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF6B875E2475EE8500EF2EF7 /* LaunchScreen.storyboard */; };
 		CF6B876B2475EE8500EF2EF7 /* iOMGTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6B876A2475EE8500EF2EF7 /* iOMGTests.swift */; };
 		CF6B87762475EE8500EF2EF7 /* iOMGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6B87752475EE8500EF2EF7 /* iOMGUITests.swift */; };
+		CF9F04B2247D8E9500D352F6 /* URLPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9F04B1247D8E9500D352F6 /* URLPickerViewModel.swift */; };
 		CFECB6562479DA06003B1123 /* FeeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFECB6552479DA06003B1123 /* FeeInfo.swift */; };
 		CFECB659247AA725003B1123 /* URLPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFECB658247AA725003B1123 /* URLPickerView.swift */; };
 		CFECB65B247AAB7F003B1123 /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFECB65A247AAB7F003B1123 /* PersistentContainer.swift */; };
@@ -99,6 +100,7 @@
 		CF6B87712475EE8500EF2EF7 /* iOMGUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOMGUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF6B87752475EE8500EF2EF7 /* iOMGUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOMGUITests.swift; sourceTree = "<group>"; };
 		CF6B87772475EE8500EF2EF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF9F04B1247D8E9500D352F6 /* URLPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLPickerViewModel.swift; sourceTree = "<group>"; };
 		CFECB6552479DA06003B1123 /* FeeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeeInfo.swift; sourceTree = "<group>"; };
 		CFECB658247AA725003B1123 /* URLPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLPickerView.swift; sourceTree = "<group>"; };
 		CFECB65A247AAB7F003B1123 /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 			isa = PBXGroup;
 			children = (
 				CFECB658247AA725003B1123 /* URLPickerView.swift */,
+				CF9F04B1247D8E9500D352F6 /* URLPickerViewModel.swift */,
 			);
 			path = url;
 			sourceTree = "<group>";
@@ -487,6 +490,7 @@
 				CFF7AA37247D70BA0012584A /* TransactionDetailsView.swift in Sources */,
 				CF6B87582475EE8300EF2EF7 /* AppView.swift in Sources */,
 				CF3A6DC924780A4A00DDEC0F /* PriceService.swift in Sources */,
+				CF9F04B2247D8E9500D352F6 /* URLPickerViewModel.swift in Sources */,
 				CF3563402478875B00289980 /* StatsService.swift in Sources */,
 				CF04E023247C4D6C008229AD /* BlockViewModel.swift in Sources */,
 				CF3A6DD32478131600DDEC0F /* PriceView.swift in Sources */,

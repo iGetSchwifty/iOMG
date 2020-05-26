@@ -84,7 +84,11 @@ class TransactionViewModel: NSObject, NSFetchedResultsControllerDelegate, Observ
     
     private func updateTransactions() {
         DispatchQueue.main.async {
-            self.transactions = self.controller?.fetchedObjects ?? []
+            var newTxs = self.controller?.fetchedObjects ?? []
+            newTxs.sort(by: { (lhs, rhs) -> Bool in
+                return UInt64(lhs.txindex ?? "") ?? 0 < UInt64(rhs.txindex ?? "") ?? 0
+            })
+            self.transactions = newTxs
         }
     }
 }

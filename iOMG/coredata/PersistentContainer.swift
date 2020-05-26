@@ -40,4 +40,28 @@ class PersistentContainer {
         context.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
         return context
     }
+    
+    static func clear() {
+        viewContext.perform {
+            persistentContainer.managedObjectModel.entities.forEach {
+
+                guard let name = $0.name else { return }
+
+                let fetch: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: name)
+                let request = NSBatchDeleteRequest(fetchRequest: fetch)
+                request.resultType = .resultTypeObjectIDs
+
+                do {
+                    guard let req = try persistentContainer.persistentStoreCoordinator.execute(request, with: viewContext) as? NSBatchDeleteResult else { return }
+
+                    NSManagedObjectContext.mergeChanges(
+                        fromRemoteContextSave: [NSDeletedObjectsKey: req.result as? [NSManagedObjectID] ?? []],
+                        into: [viewContext])
+                }
+                catch let e {
+                    print(e)
+                }
+            }
+        }
+    }
 }
