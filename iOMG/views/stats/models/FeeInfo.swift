@@ -8,4 +8,5 @@
 struct FeeInfo {
     var amount: Int64?
     var subunitValue: Int64?
+    var currency: String?
 }

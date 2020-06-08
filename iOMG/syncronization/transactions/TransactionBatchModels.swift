@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import BigInt
 
 struct TransactionPageData: Codable {
     var page: Int
@@ -27,8 +28,8 @@ struct TransactionBatchAPIResponse: Codable {
 }
 
 struct TransactionBatchModel: Codable {
-    var txindex: UInt64
-    var txtype: UInt64
+    var txindex: BigUInt
+    var txtype: BigUInt
     var txhash: String
     var metadata: String?
     var txbytes: String
@@ -38,13 +39,13 @@ struct TransactionBatchModel: Codable {
 
 struct TransactionAPIData: Codable {
     var blknum: UInt64
-    var txindex: UInt64
-    var otype: UInt64
-    var oindex: UInt64
-    var utxo_pos: UInt64
+    var txindex: BigUInt
+    var otype: BigUInt
+    var oindex: BigUInt
+    var utxo_pos: BigUInt
     var owner: String
     var currency: String
     var creating_txhash: String?
     var spending_txhash: String?
-    var amount: UInt64
+    var amount: BigUInt
 }

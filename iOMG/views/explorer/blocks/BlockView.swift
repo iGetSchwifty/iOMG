@@ -7,11 +7,12 @@
 //
 
 import SwiftUI
+import BigInt
 
 struct BlockOverlay: View {
 
     let blknum: UInt64
-    let ethHeight: UInt64
+    let ethHeight: BigUInt
     let txCount: UInt64
     
     /// body
@@ -31,11 +32,11 @@ struct BlockOverlay: View {
                 Text("Block: \(blknum)")
                     .font(.headline).bold()
                 
-                Text("ETH Height: \(ethHeight)")
+                Text("ETH Height: \(ethHeight.description)")
                     .font(.footnote).bold()
-                
+
                 Spacer()
-                
+
                 Text("TX Count: \(txCount)")
                     .font(.subheadline).bold()
             }.padding()

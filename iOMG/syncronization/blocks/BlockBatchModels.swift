@@ -5,7 +5,7 @@
 //  Created by Tacenda on 5/24/20.
 //  Copyright © 2020 Tacenda. All rights reserved.
 //
-
+import BigInt
 import Foundation
 struct BlockBatchAPIResponse: Codable {
     var data: [BlockBatchModel]?
@@ -27,8 +27,8 @@ struct PageData: Codable {
 struct BlockBatchModel: Codable {
     var blknum: UInt64
     var hash: String
-    var ethHeight: UInt64
-    var txCount: UInt64
+    var ethHeight: BigUInt
+    var txCount: BigUInt
     
     private enum CodingKeys: String, CodingKey {
         case blknum

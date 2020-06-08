@@ -6,7 +6,7 @@
 //  Copyright © 2020 Tacenda. All rights reserved.
 //
 
-
+import BigInt
 import Foundation
 import Combine
 import CoreData

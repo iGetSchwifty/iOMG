@@ -18,8 +18,8 @@ struct StatsView: View {
                 Spacer()
             } else {
                 if viewModel.currentFeeInfo != nil {
-                    if viewModel.currentFeeInfo!.amount != nil && viewModel.currentFeeInfo!.subunitValue != nil {
-                        Text("Current ETH Fee: \(Double(viewModel.currentFeeInfo!.amount!) / Double(viewModel.currentFeeInfo!.subunitValue!))").font(.subheadline).padding()
+                    if viewModel.currentFeeInfo != nil {
+                        Text(viewModel.currentFeeInfo ?? "Unknown fee amount currently").font(.subheadline).padding()
                     }
                 }
                 VStack {

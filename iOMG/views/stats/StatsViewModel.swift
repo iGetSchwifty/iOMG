@@ -13,7 +13,7 @@ import Foundation
 class StatsViewModel: ObservableObject {
     let reloadExplorer: (() -> Void)?
     @Published var currentStats: OMGNetworkStats? = nil
-    @Published var currentFeeInfo: FeeInfo? = nil
+    @Published var currentFeeInfo: String? = nil
     private let provider: NetworkingProtocol
     private var disposeBag = Set<AnyCancellable>()
     private var isFetching = false
@@ -63,7 +63,20 @@ class StatsViewModel: ObservableObject {
                     //  TODO: Do something here...
                     return
                 }
-                self.currentFeeInfo = feeInfo
+                let tokenType: String
+                if feeInfo.currency == "0x0000000000000000000000000000000000000000" {
+                    tokenType = "ETH"
+                } else if feeInfo.currency == "0xd26114cd6ee289accf82350c8d8487fedb8a0c07" {
+                    tokenType = "OMG"
+                } else {
+                    tokenType = ""
+                }
+                if let amount = feeInfo.amount, let subUnit = feeInfo.subunitValue {
+                    let feeValue = Double(amount) / Double(subUnit)
+                    self.currentFeeInfo = "Current fee: \(Double(round(1000000*feeValue)/1000000)) \(tokenType)"
+                } else {
+                    self.currentFeeInfo = "Current fee is unknown"
+                }
             }.store(in: &disposeBag)
     }
 }

@@ -5,7 +5,7 @@
 //  Created by Tacenda on 5/25/20.
 //  Copyright © 2020 Tacenda. All rights reserved.
 //
-
+import BigInt
 import SwiftUI
 
 extension UIApplication {

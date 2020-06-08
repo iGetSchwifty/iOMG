@@ -18,6 +18,7 @@
 //
 import SwiftUI
 import Combine
+import BigInt
 
 struct ExplorerView: View {
     @State var searchText = ""
@@ -80,12 +81,12 @@ struct ExplorerView: View {
                     ForEach(viewModel.blocks.filter{($0.blknum?.hasPrefix(searchText) ?? false) || searchText == ""}, id: \.blknum) { (entity: Block) in
                         NavigationLink(destination:
                             TransactionView(viewModel: TransactionViewModel(blknum: UInt64(entity.blknum ?? "") ?? 0,
-                                                                            ethHeight: UInt64(entity.ethHeight ?? "") ?? 0,
+                                                                            ethHeight: BigUInt(entity.ethHeight ?? "") ?? 0,
                                                                             txCount: UInt64(entity.txCount ?? "") ?? 0))
                         ) {
 
                             BlockView(viewModel: BlockViewModel(blknum: UInt64(entity.blknum ?? "") ?? 0,
-                                                                ethHeight: UInt64(entity.ethHeight ?? "") ?? 0,
+                                                                ethHeight: BigUInt(entity.ethHeight ?? "") ?? 0,
                                                                 txCount: UInt64(entity.txCount ?? "") ?? 0))
                         }
                     }

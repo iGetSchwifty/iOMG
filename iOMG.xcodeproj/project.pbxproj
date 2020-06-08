@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,7 @@
 		CF04E026247C53C2008229AD /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF04E025247C53C2008229AD /* TransactionViewModel.swift */; };
 		CF0A67DC2478B36000BCF135 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0A67DB2478B36000BCF135 /* AccountView.swift */; };
 		CF0A67DF2478B4AD00BCF135 /* ExplorerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0A67DE2478B4AD00BCF135 /* ExplorerView.swift */; };
+		CF2D9996248BC62700E12EDF /* BigInt in Frameworks */ = {isa = PBXBuildFile; productRef = CF2D9995248BC62700E12EDF /* BigInt */; };
 		CF35633C247886E200289980 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF35633B247886E200289980 /* StatsView.swift */; };
 		CF35633E2478874200289980 /* StatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF35633D2478874200289980 /* StatsViewModel.swift */; };
 		CF3563402478875B00289980 /* StatsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF35633F2478875B00289980 /* StatsService.swift */; };
@@ -39,6 +40,7 @@
 		CF6B87762475EE8500EF2EF7 /* iOMGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6B87752475EE8500EF2EF7 /* iOMGUITests.swift */; };
 		CF9F04B2247D8E9500D352F6 /* URLPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9F04B1247D8E9500D352F6 /* URLPickerViewModel.swift */; };
 		CF9F04B4247DA50800D352F6 /* ExplorerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9F04B3247DA50800D352F6 /* ExplorerViewModel.swift */; };
+		CFB97C01248DE921009E6B31 /* extensions+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB97C00248DE921009E6B31 /* extensions+Codable.swift */; };
 		CFECB6562479DA06003B1123 /* FeeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFECB6552479DA06003B1123 /* FeeInfo.swift */; };
 		CFECB659247AA725003B1123 /* URLPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFECB658247AA725003B1123 /* URLPickerView.swift */; };
 		CFECB65B247AAB7F003B1123 /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFECB65A247AAB7F003B1123 /* PersistentContainer.swift */; };
@@ -103,6 +105,7 @@
 		CF6B87772475EE8500EF2EF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF9F04B1247D8E9500D352F6 /* URLPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLPickerViewModel.swift; sourceTree = "<group>"; };
 		CF9F04B3247DA50800D352F6 /* ExplorerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorerViewModel.swift; sourceTree = "<group>"; };
+		CFB97C00248DE921009E6B31 /* extensions+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extensions+Codable.swift"; sourceTree = "<group>"; };
 		CFECB6552479DA06003B1123 /* FeeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeeInfo.swift; sourceTree = "<group>"; };
 		CFECB658247AA725003B1123 /* URLPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLPickerView.swift; sourceTree = "<group>"; };
 		CFECB65A247AAB7F003B1123 /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
@@ -116,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF2D9996248BC62700E12EDF /* BigInt in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +294,7 @@
 				CF6B875E2475EE8500EF2EF7 /* LaunchScreen.storyboard */,
 				CF6B87612475EE8500EF2EF7 /* Info.plist */,
 				CF6B875B2475EE8500EF2EF7 /* Preview Content */,
+				CFB97C00248DE921009E6B31 /* extensions+Codable.swift */,
 			);
 			path = iOMG;
 			sourceTree = "<group>";
@@ -362,6 +367,9 @@
 			dependencies = (
 			);
 			name = iOMG;
+			packageProductDependencies = (
+				CF2D9995248BC62700E12EDF /* BigInt */,
+			);
 			productName = iOMG;
 			productReference = CF6B874D2475EE8300EF2EF7 /* iOMG.app */;
 			productType = "com.apple.product-type.application";
@@ -434,6 +442,9 @@
 				Base,
 			);
 			mainGroup = CF6B87442475EE8300EF2EF7;
+			packageReferences = (
+				CF2D9994248BC62700E12EDF /* XCRemoteSwiftPackageReference "BigInt" */,
+			);
 			productRefGroup = CF6B874E2475EE8300EF2EF7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -489,6 +500,7 @@
 				CF3A6DCE24780C8600DDEC0F /* URLService.swift in Sources */,
 				CF6B87532475EE8300EF2EF7 /* SceneDelegate.swift in Sources */,
 				CF04E020247C4BDF008229AD /* TransactionBatchModels.swift in Sources */,
+				CFB97C01248DE921009E6B31 /* extensions+Codable.swift in Sources */,
 				CFECB6562479DA06003B1123 /* FeeInfo.swift in Sources */,
 				CFF7AA37247D70BA0012584A /* TransactionDetailsView.swift in Sources */,
 				CF6B87582475EE8300EF2EF7 /* AppView.swift in Sources */,
@@ -836,6 +848,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CF2D9994248BC62700E12EDF /* XCRemoteSwiftPackageReference "BigInt" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/attaswift/BigInt.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CF2D9995248BC62700E12EDF /* BigInt */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CF2D9994248BC62700E12EDF /* XCRemoteSwiftPackageReference "BigInt" */;
+			productName = BigInt;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		CF6B87542475EE8300EF2EF7 /* iOMG.xcdatamodeld */ = {

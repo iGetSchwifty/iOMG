@@ -42,7 +42,8 @@ class StatsService {
                 if let data = feeInfo?["data"] as? [String : AnyObject], let ethData = data["1"] as? [[String : AnyObject]] {
                     let amount = ethData.first?["amount"] as? Int64
                     let subUnit = ethData.first?["subunit_to_unit"] as? Int64
-                    returnObjects = FeeInfo(amount: amount, subunitValue: subUnit)
+                    let currency = ethData.first?["currency"] as? String
+                    returnObjects = FeeInfo(amount: amount, subunitValue: subUnit, currency: currency)
                 }
                 return returnObjects
             }
